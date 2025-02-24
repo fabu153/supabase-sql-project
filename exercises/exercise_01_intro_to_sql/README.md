@@ -1,7 +1,7 @@
 
 ---
 
-### **2️1️⃣ Exercise 1 Intro Readme**
+### **1️⃣ Exercise 1 Intro Readme**
 Each exercise has a `README.md` explaining its purpose.
 ```md
 # Exercise 1: Introduction to Supabase & SQL
