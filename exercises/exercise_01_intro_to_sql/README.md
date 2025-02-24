@@ -1,8 +1,8 @@
 
 ---
 
-### **2️⃣ `exercises/exercise_01_intro_to_sql/README.md` (Exercise 1 Readme)**
-Each exercise should have a `README.md` explaining its purpose.
+### **2️1️⃣ Exercise 1 Intro Readme**
+Each exercise has a `README.md` explaining its purpose.
 ```md
 # Exercise 1: Introduction to Supabase & SQL
 
