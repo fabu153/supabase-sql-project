@@ -1,3 +1,6 @@
+-- Select all students
+SELECT * FROM students;
+
 -- Select students who enrolled after a certain date
 SELECT * FROM students WHERE enrollment_date > '2023-09-30';
 
