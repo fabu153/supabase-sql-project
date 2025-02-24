@@ -98,11 +98,12 @@ FROM enrollments
 INNER JOIN students ON enrollments.student_id = students.id
 INNER JOIN courses ON enrollments.course_id = courses.course_id;
 
--- Find all courses a specific student is enrolled in
+-- Find all courses a specific student is enrolled in by student name (e.g., 'John Doe')
 SELECT courses.course_name, enrollments.enrollment_date
 FROM enrollments
+JOIN students ON enrollments.student_id = students.id
 JOIN courses ON enrollments.course_id = courses.course_id
-WHERE enrollments.student_id = 2;  -- Change ID to target a specific student
+WHERE students.first_name = 'John' AND students.last_name = 'Doe';
 
 -- Count the number of students in each course
 SELECT courses.course_name, COUNT(enrollments.student_id) AS student_count
@@ -110,9 +111,11 @@ FROM enrollments
 JOIN courses ON enrollments.course_id = courses.course_id
 GROUP BY courses.course_name;
 
+-- List all students enrolled in more than one course
+SELECT students.first_name, students.last_name, COUNT(enrollments.course_id) AS course_count
+FROM enrollments
+JOIN students ON enrollments.student_id = students.id
+GROUP BY students.id
+HAVING COUNT(enrollments.course_id) > 1;
+
 -- =====================================
--- Optional Step: Reset Auto-Increment IDs
--- =====================================
-ALTER SEQUENCE students_id_seq RESTART WITH 1;
-ALTER SEQUENCE courses_course_id_seq RESTART WITH 1;
-ALTER SEQUENCE enrollments_enrollment_id_seq RESTART WITH 1;
