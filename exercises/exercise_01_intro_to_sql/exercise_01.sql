@@ -99,8 +99,9 @@ SELECT * FROM enrollments;
 -- List all students and their enrolled courses
 SELECT students.first_name, students.last_name, courses.course_name, enrollments.enrollment_date
 FROM enrollments
-INNER JOIN students ON enrollments.student_id = students.id
-INNER JOIN courses ON enrollments.course_id = courses.course_id;
+JOIN students ON enrollments.student_id = students.id
+JOIN courses ON enrollments.course_id = courses.course_id
+ORDER BY students.last_name;
 
 -- Find all courses a specific student is enrolled in by student name (e.g., 'John Doe')
 SELECT courses.course_name, enrollments.enrollment_date
@@ -113,7 +114,8 @@ WHERE students.first_name = 'John' AND students.last_name = 'Doe';
 SELECT courses.course_name, COUNT(enrollments.student_id) AS student_count
 FROM enrollments
 JOIN courses ON enrollments.course_id = courses.course_id
-GROUP BY courses.course_name;
+GROUP BY courses.course_name
+ORDER BY student_count DESC;
 
 -- List all students enrolled in more than one course
 SELECT students.first_name, students.last_name, COUNT(enrollments.course_id) AS course_count
