@@ -2,6 +2,11 @@
 -- Exercise 2: Using JOINS and AGGREGATION with Supabase
 -- =====================================
 
+-- Ensure Indexing Before Running Queries
+CREATE INDEX idx_enrollments_student ON enrollments(student_id);
+CREATE INDEX idx_enrollments_course ON enrollments(course_id);
+CREATE INDEX idx_courses_id ON courses(course_id);
+
 -- =====================================
 -- 1️⃣ List All Students with Their Enrolled Courses
 -- =====================================
